@@ -1,0 +1,21 @@
+footer{
+    background-color: lightgray;
+    color: black;
+    font-weight:bold;
+    padding: 5px;
+    position:relative;
+    bottom:0;
+    width:100%;
+    height:30px;  
+}
+
+.container{
+    min-height: 100%;
+    position: relative;
+}
+body{
+    height: 100%;
+}
+html{
+    height: 100%;
+}
