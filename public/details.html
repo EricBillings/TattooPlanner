@@ -52,11 +52,63 @@
     <main>
         <div class="container">
             <div class="jumbotron">
+                <h2 class="display-4 text-center">Instructions:</h2>
+                <p class="lead text-center">Below are the specifications that you can set for your tattoo. Please fill
+                    out all
+                    fields before you submit your tattoo request.</p>
             </div>
+            <form>
+                <div class="form-group">
+                    <label for="phrase">Phrase:</label>
+                    <textarea class="form-control" id="phrase" rows="1"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="font">Font:</label>
+                    <select class="form-control" id="font">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="color">Color:</label>
+                    <input type="color" id="color" name="color" value="#e66465">
+                </div>
+                <div class="form-group">
+                    <label for="bodypart">Body Part:</label>
+                    <select class="form-control" id="bodypart">
+                        <option value="chest">Chest</option>
+                        <option value="back">Back</option>
+                        <option value="leftarm">Left Arm</option>
+                        <option value="rightarm">Right Arm</option>
+                        <option value="leftleg">Left Leg</option>
+                        <option value="rightleg">Right Leg</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="size">Size:</label>
+                    <select class="form-control" id="size">
+                        <option value="xs">Extra Small</option>
+                        <option value="s">Small</option>
+                        <option value="m">Medium</option>
+                        <option value="l">Large</option>
+                        <option value="xl">Extra Large</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="specify">Specifications:</label>
+                    <textarea class="form-control" id="specify" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-dark btn-lg btn-block" id="submit">Submit</button>
+                </div>
+            </form>
         </div>
     </main>
     <footer>
-        <h6 class="text-center">©️ Team Purple 2019</h6>
+        <div class="text-center">©️ Team Purple 2019</div>
     </footer>
 </body>
 
