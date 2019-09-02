@@ -76,3 +76,18 @@
   .nav-button{
     margin:5px;  
   }
+ 
+  
+
+  @media (min-width: 1199.98px) {
+    #mobile-body-part{
+      display:none;
+    }
+  }
+
+  @media (max-width: 1199.98px) {
+    #large-display-body-part{
+      display:none;
+    }
+  }
+ 
