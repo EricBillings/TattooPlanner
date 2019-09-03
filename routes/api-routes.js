@@ -1,4 +1,6 @@
 let db = require("../models");
+const nodemailer = require("nodemailer");
+
 
 module.exports = function (app) {
 
@@ -93,4 +95,38 @@ module.exports = function (app) {
           });
       });
       
+      //nodemailer
+      app.post("/api/newTat",function(req,res){
+        var newTat = req.body;
+        var transporter = nodemailer.createTransport({
+            service:"gmail",
+            auth:{
+                user:'plannertattoo@gmail.com',
+                pass:'TattooPlanner123'
+            }
+        });
+        
+        const mailOptions = {
+            from: 'plannertattoo@gmail.com', // sender address
+            to: 'willcwhite@gmail.com', // list of receivers
+            subject: 'NEW TATTOO REQUEST', // Subject line
+            html: `<h1>A Customer has requested a new tattoo!</h1>
+            <h2>Phrase:<h2> ${newTat.phrase}
+            <h3>Font:</h3> ${newTat.font}
+            <h3>Location:</h3> ${newTat.location}
+            <h3>Color(s):</h3> ${newTat.color}
+            <h3>Size:<h3> ${newTat.size}
+            <h3>Additional Specifications:</h3> ${newTat.specs}
+            <h4>Reply to this user at</h4> willcwhite@gmail.com` // plain text body
+          };
+        
+          transporter.sendMail(mailOptions, function(err,info){
+              if(err){
+                  return console.log(err);
+              }else{
+                  console.log(info)
+              }
+          })
+    })
+
 }

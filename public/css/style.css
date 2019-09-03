@@ -40,10 +40,27 @@ nav, .footer {
     background-color: maroon;
     color: white;
 }
+
 button, .btn {
     background-color: maroon;
     color: white;
 }
+
 button, #preview {
     border-radius: 5px;
+}
+
+.container-fluid .title{
+    background: url("../images/tattooPlanner.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    text-align: center;
+    padding: 50px 10px 240px;
+    font-family: 'Shadows Into Light', cursive;
+    color: #FFF;
+}
+
+.container{
+    margin-top: -190px;
 }
