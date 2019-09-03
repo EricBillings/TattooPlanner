@@ -2,110 +2,131 @@ let db = require("../models");
 const nodemailer = require("nodemailer");
 
 
-module.exports = function (app) {
+module.exports = function(app) {
 
-    app.get("/api/Customers", function (req, res) {
-        db.Post.findAll({})
-            .then(function (dbPost) {
-                res.json(dbPost);
+    app.get("/api/Customers", function(req, res) {
+        console.log(req.body);
+        db.Customer.findAll({})
+            .then(function(dbCustomer) {
+                res.json(dbCustomer);
             });
     });
-    app.get("/api/Tattoos", function (req, res) {
-        db.Post.findAll({})
-            .then(function (dbPost) {
-                res.json(dbPost);
-            });
-    });
-
-    app.post("/api/Customers", function (req, res) {
-        db.Post.create(req.body)
-            .then(function (dbPost) {
-                res.json(dbPost);
-            });
-    });
-    app.post("/api/Tattoos", function (req, res) {
-        db.Post.create(req.body)
-            .then(function (dbPost) {
-                res.json(dbPost);
+    app.get("/api/Tattoos", function(req, res) {
+        db.Tattoo.findAll({})
+            .then(function(dbTattoo) {
+                res.json(dbTattoo);
             });
     });
 
-    app.get("/api/Customers/:id", function (req, res) {
-        db.Post.findOne({
-            where: {
-                id: req.params.id
-            }
-        })
-            .then(function (dbPost) {
-                res.json(dbPost);
+    app.post("/api/Customers", function(req, res) {
+        console.log(req.body)
+        db.Customer.create(req.body)
+            .then(function(dbCustomer) {
+                res.json(dbCustomer);
             });
     });
-    app.get("/api/Tattoos/:id", function (req, res) {
-        db.Post.findOne({
-            where: {
-                id: req.params.id
-            }
-        })
-            .then(function (dbPost) {
-                res.json(dbPost);
+    app.post("/api/Tattoos", function(req, res) {
+        db.Tattoo.create(req.body)
+            .then(function(dbTattoo) {
+                res.json(dbTattoo);
             });
     });
 
-    app.put("/api/Customers", function (req, res) {
-        db.Post.update(req.body,
-            {
+    app.get("/api/Customers/:id", function(req, res) {
+        db.Customer.findOne({
+                where: {
+                    id: req.params.id
+                }
+            })
+            .then(function(dbCustomer) {
+                res.json(dbCustomer);
+            });
+    });
+    app.get("/api/Tattoos/:id", function(req, res) {
+        db.Tattoo.findOne({
+                where: {
+                    id: req.params.id
+                }
+            })
+            .then(function(dbTattoo) {
+                res.json(dbTattoo);
+            });
+    });
+
+    app.put("/api/Customers", function(req, res) {
+        db.Customer.update(req.body, {
                 where: {
                     id: req.body.id
                 }
             })
-            .then(function (dbPost) {
-                res.json(dbPost);
+            .then(function(dbCustomer) {
+                res.json(dbCustomer);
             });
     });
-    app.put("/api/Tattoos", function (req, res) {
-        db.Post.update(req.body,
-            {
+    app.put("/api/Tattoos", function(req, res) {
+        db.Tattoo.update(req.body, {
                 where: {
                     id: req.body.id
                 }
             })
-            .then(function (dbPost) {
+            .then(function(dbTattoo) {
+                res.json(dbTattoo);
+            });
+    });
+
+    app.delete("/api/Customers/:id", function(req, res) {
+        db.Customer.destroy({
+                where: {
+                    id: req.params.id
+                }
+            })
+            .then(function(dbCustomer) {
+                res.json(dbCustomer);
+            });
+    });
+    app.delete("/api/Tattoos/:id", function(req, res) {
+        db.Tattoo.destroy({
+                where: {
+                    id: req.params.id
+                }
+            })
+            .then(function(dbTattoo) {
+                res.json(dbTattoo);
+            });
+    });
+
+    app.delete("/api/Customers/:id", function(req, res) {
+        db.Post.destroy({
+                where: {
+                    id: req.params.id
+                }
+            })
+            .then(function(dbPost) {
+                res.json(dbPost);
+            });
+    });
+    app.delete("/api/Tattoos/:id", function(req, res) {
+        db.Post.destroy({
+                where: {
+                    id: req.params.id
+                }
+            })
+            .then(function(dbPost) {
                 res.json(dbPost);
             });
     });
 
-    app.delete("/api/Customers/:id", function (req, res) {
-        db.Post.destroy({
-          where: {
-            id: req.params.id
-          }
-        })
-          .then(function (dbPost) {
-            res.json(dbPost);
-          });
-      });
-      app.delete("/api/Tattoos/:id", function (req, res) {
-        db.Post.destroy({
-          where: {
-            id: req.params.id
-          }
-        })
-          .then(function (dbPost) {
-            res.json(dbPost);
-          });
-      });
-      
-      //nodemailer
-      app.post("/api/newTat",function(req,res){
+    //nodemailer
+    app.post("/api/newTat", function(req, res) {
         var newTat = req.body;
         var transporter = nodemailer.createTransport({
-            service:"gmail",
-            auth:{
-                user:'plannertattoo@gmail.com',
-                pass:'TattooPlanner123'
+            service: "gmail",
+            auth: {
+                user: 'plannertattoo@gmail.com',
+                pass: 'TattooPlanner123'
             }
         });
-        
+
         const mailOptions = {
             from: 'plannertattoo@gmail.com', // sender address
             to: 'willcwhite@gmail.com', // list of receivers
@@ -118,15 +139,15 @@ module.exports = function (app) {
             <h3>Size:<h3> ${newTat.size}
             <h3>Additional Specifications:</h3> ${newTat.specs}
             <h4>Reply to this user at</h4> willcwhite@gmail.com` // plain text body
-          };
-        
-          transporter.sendMail(mailOptions, function(err,info){
-              if(err){
-                  return console.log(err);
-              }else{
-                  console.log(info)
-              }
-          })
+        };
+
+        transporter.sendMail(mailOptions, function(err, info) {
+            if (err) {
+                return console.log(err);
+            } else {
+                console.log(info)
+            }
+        })
     })
 
 }
