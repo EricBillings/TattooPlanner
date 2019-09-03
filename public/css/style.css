@@ -17,6 +17,7 @@ main {
 body {
     min-height: 100%;
     font-family: 'Cinzel Decorative', cursive;
+    background-color: black;
 }
 
 html {
@@ -29,11 +30,13 @@ html {
 
 form {
     padding: 5px;
+    color: white;
 }
 
 .jumbotron{
     background-color: black;
     color: white;
+    border: 5px solid maroon;
 }
 
 nav, .footer {
@@ -48,6 +51,7 @@ button, .btn {
 
 button, #preview {
     border-radius: 5px;
+    background-color: maroon;
 }
 
 .container-fluid .title{
@@ -63,4 +67,11 @@ button, #preview {
 
 .container{
     margin-top: -190px;
+}
+
+button, .navbar-toggler{
+    background-color:black;
+}
+.navbar-toggler-icon{
+    color: white;
 }
