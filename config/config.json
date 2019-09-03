@@ -1,11 +1,20 @@
 {
     "development": {
+<<<<<<< HEAD
         "username": "root",
         "password": "ShakeRag1!",
         "database": "tat_test",
         "host": "127.0.0.1",
         "port": 3306,
         "dialect": "mysql"
+=======
+      "username": "root",
+      "password": "null",
+      "database": "tat_test",
+      "host": "127.0.0.1",
+      "port": 3306,
+      "dialect": "mysql"
+>>>>>>> 346bced6ba8b25f7c9ff0eff8461c00dbbf0c265
     },
     "test": {
         "username": "root",
