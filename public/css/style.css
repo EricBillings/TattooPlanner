@@ -25,3 +25,7 @@ html {
 #title-of-page {
     font-family: 'Cinzel Decorative', cursive;
 }
+
+#preview {
+    margin-bottom: 20px;
+}
