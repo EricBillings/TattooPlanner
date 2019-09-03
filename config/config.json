@@ -1,7 +1,8 @@
 {
     "development": {
         "username": "root",
-        "password": "LGBlue2!",
+
+        "password": "Null",
         "database": "tat_test",
         "host": "127.0.0.1",
         "port": 3306,
