@@ -24,12 +24,18 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/style.css">
+    <!--style sheet for modal forms-->
+    <link rel="stylesheet" href="./css/modalForms.css">
+    <!--google font -->
+    <link href="https://fonts.googleapis.com/css?family=Cinzel+Decorative&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="/">Home</a>
+            <a class="navbar-brand" href="/"><button type="button"
+                    class="btn btn-secondary nav-button">Home</button></a>
+
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                 aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -39,10 +45,13 @@
                 </ul>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/login') }}">Create Account</a>
+                        <button type="button" id="create-account-button" class="btn btn-secondary nav-button"
+                            data-toggle="modal" data-target="#sign-up-form">Create Account</button>
                     </li>
+
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/register') }}">Log In</a>
+                        <button data-toggle="modal" data-target="#sign-in-form" type="button" id="log-in-button"
+                            class="btn btn-secondary nav-button">Log In</button>
                     </li>
                 </ul>
             </div>
@@ -52,7 +61,7 @@
     <main>
         <div class="container">
             <div class="jumbotron">
-                <h1 class="display-4 text-center">Tattoo Planner</h1>
+                <h1 class="display-4 text-center" id="title-of-page">Tattoo Planner</h1>
                 <p class="lead">Tattoo Planner is a web application that is dedicated to help customers get the tattoos
                     that they want and help tattoo shop owners find the customers that they need.</p>
                 <hr class="my-4">
@@ -90,6 +99,120 @@
     <footer>
         <div class="text-center">©️ Team Purple 2019</div>
     </footer>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="sign-in-form" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog form-dark" role="document">
+            <!--Content-->
+            <div class="modal-content card card-image" style="background-image: url('../images/choosingFont.jpg');">
+                <div class="text-white rgba-stylish-strong py-5 px-5 z-depth-4">
+                    <!--Header-->
+                    <div class="modal-header text-center pb-4">
+                        <h3 class="modal-title w-100 white-text font-weight-bold" id="myModalLabel">
+                            <strong>SIGN</strong> <a class="green-text font-weight-bold"><strong> IN</strong></a></h3>
+                        <button type="button" class="close white-text" id="close-modal-x" data-dismiss="modal"
+                            aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <!--Body-->
+                    <div class="modal-body">
+                        <!--Body-->
+                        <div class="md-form mb-5 ">
+                            <input type="email" required id="form-email-sign-in"
+                                class="form-control validate white-text email-input-sign-up">
+                            <label data-error="wrong" data-success="right" for="form-email-sign-in">Your email</label>
+                        </div>
+
+                        <div class="md-form pb-3 ">
+                            <input type="password" required id="form-password-sign-in"
+                                class="form-control validate white-text password-input">
+                            <label data-error="wrong" data-success="right" for="form-password-sign-in">Your
+                                password</label>
+                        </div>
+
+                        <!--Grid row-->
+                        <div class="row d-flex align-items-center mb-4">
+
+                            <!--Grid column-->
+                            <div class="text-center mb-3 col-md-12">
+                                <button type="button" id="sign-in-button" data-toggle="modal"
+                                    data-target="#sign-in-form" class="btn btn-success btn-block btn-rounded z-depth-1"
+                                    disabled>Sign
+                                    in</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--/.Content-->
+        </div>
+    </div>
+    <!-- Modal -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="sign-up-form" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog form-dark" role="document">
+            <!--Content-->
+            <div class="modal-content card card-image" style="background-image: url('../images/choosingFont.jpg');">
+                <div class="text-white rgba-stylish-strong py-5 px-5 z-depth-4">
+                    <!--Header-->
+                    <div class="modal-header text-center pb-4">
+                        <h3 class="modal-title w-100 white-text font-weight-bold" id="myModalLabel">
+                            <strong>SIGN</strong> <a class="green-text font-weight-bold"><strong> UP</strong></a></h3>
+                        <button type="button" class="close white-text" id="close-modal-x" data-dismiss="modal"
+                            aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <!--Body-->
+                    <div class="modal-body">
+                        <!--Body-->
+                        <div class="md-form mb-5 ">
+                            <input type="email" required id="form-email-sign-up"
+                                class="form-control validate white-text email-input-sign-up">
+                            <label data-error="wrong" data-success="right" for="form-email-sign-up">Your email</label>
+                        </div>
+
+                        <div class="md-form pb-3 ">
+                            <input type="password" required id="form-password-create"
+                                class="form-control validate white-text password-input" disabled>
+                            <label data-error="wrong" data-success="right" for="form-password-create">Your
+                                password</label>
+                        </div>
+
+                        <div class="md-form pb-3 ">
+                            <input type="password" required id="form-password-confirm"
+                                class="form-control validate white-text password-input" disabled>
+                            <label data-error="wrong" data-success="right" for="form-password-confirm">Confirm
+                                password</label>
+                        </div>
+
+                        <!--Grid row-->
+                        <div class="row d-flex align-items-center mb-4">
+
+                            <!--Grid column-->
+                            <div class="text-center mb-3 col-md-12">
+                                <button type="button" id="sign-up-button" data-toggle="modal"
+                                    data-target="#sign-up-form"
+                                    class="btn btn-success btn-block btn-rounded z-depth-1" disabled>Sign
+                                    up</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--/.Content-->
+        </div>
+    </div>
+    <!-- Modal -->
+
+    <script src="../js/modal-index.js"></script>
+
 </body>
 
 </html>

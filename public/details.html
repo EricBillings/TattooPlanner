@@ -7,31 +7,28 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Tattoo Planner</title>
     <!--Bootstrap Javascript-->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!--Google Font API-->
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+    <script src="../public/js/fontAPI.js"></script>
+
+
     <!--JQuery-->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <!--Styling-->
     <link rel="stylesheet" href="./css/reset.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/modalForms.css">
 </head>
 
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="./index.html">Home</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div id="navbarNavDropdown" class="navbar-collapse collapse">
@@ -53,30 +50,27 @@
         <div class="container">
             <div class="jumbotron">
                 <h2 class="display-4 text-center">Instructions:</h2>
-                <p class="lead text-center">Below are the specifications that you can set for your tattoo. Please fill
-                    out all
-                    fields before you submit your tattoo request.</p>
+                <p class="lead text-center">Below are the specifications that you can set for your tattoo. Please fill out all fields before you submit your tattoo request.</p>
             </div>
             <form>
                 <div class="form-group">
                     <label for="phrase">Phrase:</label>
                     <textarea class="form-control" id="phrase" rows="1"></textarea>
                 </div>
+                <div id="previewArea"> </div>
+
                 <div class="form-group">
                     <label for="font">Font:</label>
                     <select class="form-control" id="font">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
+                     
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="color">Color:</label>
                     <input type="color" id="color" name="color" value="#e66465">
                 </div>
-                <div class="form-group">
+                <button type="submit" id="preview">Preview Tattoo</button>
+                <div class="form-group" id="mobile-body-part">
                     <label for="bodypart">Body Part:</label>
                     <select class="form-control" id="bodypart">
                         <option value="chest">Chest</option>
@@ -87,6 +81,14 @@
                         <option value="rightleg">Right Leg</option>
                     </select>
                 </div>
+                <div class="form-group" id="large-display-body-part">
+                    <p style="display: inline-block">Body Part:
+                        <p style="display: inline-block" id="bodyPartDisplay">
+                        </p>
+                    </p>
+                    <button data-toggle="modal" data-target="#fullHeightModalRight" type="button" class="btn btn-primary">Select body part</button>
+                </div>
+
                 <div class="form-group">
                     <label for="size">Size:</label>
                     <select class="form-control" id="size">
@@ -110,6 +112,160 @@
     <footer>
         <div class="text-center">©️ Team Purple 2019</div>
     </footer>
+
+
+
+
+    <!-- Full Height Modal Right -->
+    <div class="modal fade right" id="fullHeightModalRight" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+        <!-- Add class .modal-full-height and then add class .modal-right (or other classes from list above) to set a position to the modal -->
+        <div class="modal-dialog modal-full-height modal-left modal-notify modal-info modal-lg text-center" role="document">
+
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title w-100" style="color: white" style="display: inline-block">Body Part:
+                        <p style="display: inline-block" id="myModalLabel"></p>
+                    </h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <img src="../images/bodyArea.jpg" usemap="#image-map">
+                    <map name="image-map">
+                        <area class="body-area" target="" alt="forehead" title="forehead" href=""
+                            coords="124,12,107,38,177,39,167,18,152,9,136,8,112,20" shape="poly">
+                        <area class="body-area" target="" alt="right-front-ear " title="right-front-ear " href=""
+                            coords="109,61,112,82,100,71" shape="poly">
+                        <area class="body-area" target="" alt="left-front-ear" title="left-front-ear" href=""
+                            coords="182,66,175,58,173,85,180,76" shape="poly">
+                        <area class="body-area" target="" alt="back-of-head" title="back-of-head" href=""
+                            coords="463,82,475,39,472,19,454,4,425,6,412,23,414,58,421,82" shape="poly">
+                        <area class="body-area" target="" alt="face" title="face" href="" coords="142,70,29"
+                            shape="circle">
+                        <area class="body-area" target="" alt="right-back-ear" title="right-back-ear" href=""
+                            coords="467,78,475,79,483,61,475,51" shape="poly">
+                        <area class="body-area" target="" alt="left-back-ear" title="left-back-ear" href=""
+                            coords="403,60,410,57,419,78,411,81" shape="poly">
+                        <area class="body-area" target="" alt="front-neck" title="front-neck" href=""
+                            coords="119,98,144,113,165,103,166,126,145,127,120,125" shape="poly">
+                        <area class="body-area" target="" alt="back-neck" title="back-neck" href=""
+                            coords="421,88,435,88,452,89,465,89,465,110,449,109,434,111,422,108" shape="poly">
+                        <area class="body-area" target="" alt="chest" title="chest" href=""
+                            coords="103,131,141,129,178,131,199,139,208,147,210,172,199,213,172,222,139,226,101,223,87,208,78,182,76,171,78,147"
+                            shape="poly">
+                        <area class="body-area" target="" alt="back" title="back" href=""
+                            coords="404,122,430,120,451,122,469,122,487,130,500,135,504,146,504,158,504,178,507,197,506,219,502,252,485,248,434,248,387,249,381,213,379,190,375,164,379,138"
+                            shape="poly">
+                        <area class="body-area" target="" alt="Lower-back" title="Lower-back" href=""
+                            coords="390,255,429,253,463,254,482,255,497,259,493,276,492,288,496,304,499,315,501,336,483,339,465,340,440,343,418,340,400,338,388,331,390,309,397,284"
+                            shape="poly">
+                        <area class="body-area" target="" alt="left-cheek" title="left-cheek" href=""
+                            coords="388,341,385,357,384,376,394,383,405,390,419,393,434,393,443,392,442,381,441,372,440,363,440,355,436,348"
+                            shape="poly">
+                        <area class="body-area" target="" alt="right-cheek" title="right-cheek" href=""
+                            coords="452,349,452,362,452,369,451,377,451,387,458,393,469,395,477,397,488,394,502,390,508,382,508,372,507,362,506,351,503,344"
+                            shape="poly">
+                        <area class="body-area" target="" alt="back-fingers-right" title="back-fingers-right" href=""
+                            coords="19,403,23,410,28,415,34,416,43,417,48,423,47,431,35,434,29,438,21,436,14,425"
+                            shape="poly">
+                        <area class="body-area" target="" alt="back-fingers-left" title="back-fingers-left" href=""
+                            coords="245,413,253,415,263,413,272,408,279,404,279,423,275,429,272,436,262,433,251,433"
+                            shape="poly">
+                        <area class="body-area" target="" alt="front-fingers-right" title="front-fingers-right" href=""
+                            coords="553,407,561,406,567,403,574,400,580,397,585,402,585,408,585,417,582,424,579,428,569,426,558,425,552,417"
+                            shape="poly">
+                        <area class="body-area" target="" alt="front-fingers-left" title="front-fingers-left" href=""
+                            coords="314,408,319,411,327,415,339,414,342,421,339,432,331,433,324,435,318,436,311,431,306,421"
+                            shape="poly">
+                        <area class="body-area" target="" alt="left-palm" title="left-palm" href=""
+                            coords="237,377,237,388,237,397,239,403,245,406,254,405,265,402,274,399,272,391,272,383,268,374,260,370"
+                            shape="poly">
+                        <area class="body-area" target="" alt="right-palm" title="right-palm" href=""
+                            coords="34,372,28,375,22,384,21,392,21,399,25,404,34,411,43,411,48,407,51,397,54,388,52,381"
+                            shape="poly">
+                        <area class="body-area" target="" alt="left-back-hand" title="left-back-hand" href=""
+                            coords="327,371,335,374,345,377,348,382,350,391,350,397,346,405,337,406,331,406,322,406,314,400,316,385,319,378"
+                            shape="poly">
+                        <area class="body-area" target="" alt="right-back-hand" title="right-back-hand" href=""
+                            coords="562,361,555,362,548,365,543,370,542,377,543,388,545,394,552,399,563,399,569,396,577,391,578,383,573,372,571,366"
+                            shape="poly">
+                        <area class="body-area" target="" alt="abdomen" title="abdomen" href=""
+                            coords="91,247,114,247,157,249,180,247,194,245,200,247,199,256,197,266,201,276,201,289,201,308,202,324,203,333,204,341,207,354,195,360,187,362,172,362,155,362,138,361,118,360,97,358,90,346,90,332,92,320,97,307,92,289,95,275,92,263"
+                            shape="poly">
+                        <area class="body-area" target="" alt="left-thigh" title="left-thigh" href=""
+                            coords="149,380,160,379,181,377,190,376,206,374,210,381,213,409,212,432,207,459,203,482,200,498,187,499,175,499,164,496,157,488,160,471,157,465,153,446,149,420"
+                            shape="poly">
+                        <area class="body-area" target="" alt="right-thigh" title="right-thigh" href=""
+                            coords="143,381,123,377,105,377,92,377,81,378,80,387,79,418,83,449,85,464,90,473,95,488,98,495,110,493,122,492,129,492,136,488,139,479,142,456,143,429"
+                            shape="poly">
+                        <area class="body-area" target="" alt="right-knee" title="right-knee" href=""
+                            coords="117,527,17" shape="circle">
+                        <area class="body-area" target="" alt="left-knee" title="left-knee" href="" coords="182,531,18"
+                            shape="circle">
+                        <area class="body-area" target="" alt="right-leg-front" title="right-leg-front" href=""
+                            coords="97,553,114,549,129,550,138,553,140,581,139,593,138,609,135,627,133,639,133,650,134,664,135,671,129,673,122,670,116,657,110,632,108,621,104,606,100,596,98,584"
+                            shape="poly">
+                        <area class="body-area" target="" alt="left-leg-front" title="left-leg-front" href=""
+                            coords="157,552,166,551,185,551,196,554,198,560,198,568,195,583,194,593,187,619,182,632,178,641,176,647,177,657,178,666,172,671,166,669,161,660,163,649,159,630,157,612,157,590,157,573"
+                            shape="poly">
+                        <area class="body-area" target="" alt="right-foot" title="right-foot" href=""
+                            coords="115,684,123,685,136,686,140,691,141,700,136,708,132,714,120,714,111,714,104,712,102,705,113,696"
+                            shape="poly">
+                        <area class="body-area" target="" alt="left-foot" title="left-foot" href=""
+                            coords="180,690,171,689,159,689,157,696,158,705,165,710,175,711,182,712,190,714,193,705"
+                            shape="poly">
+                        <area class="body-area" target="" alt="left-arm" title="left-arm" href=""
+                            coords="218,146,216,155,211,172,211,188,211,197,213,208,211,219,211,231,211,241,208,253,208,263,215,261,223,259,228,255,231,246,231,227,231,216,231,206,233,197,234,182,233,171,229,158"
+                            shape="poly">
+                        <area class="body-area" target="" alt="right-arm" title="right-arm" href=""
+                            coords="68,148,63,151,57,166,54,182,55,191,57,198,62,206,63,212,62,221,58,230,59,239,62,249,65,255,73,257,79,257,84,253,83,241,79,232,79,222,79,209,79,201,71,162"
+                            shape="poly">
+                        <area class="body-area" target="" alt="left-forearm" title="left-forearm" href=""
+                            coords="237,264,231,267,225,269,218,269,212,272,210,279,210,291,210,304,214,311,216,320,217,325,221,338,225,346,231,358,235,364,234,369,243,366,249,365,252,358"
+                            shape="poly">
+                        <area class="body-area" target="" alt="right-forearm" title="right-forearm" href=""
+                            coords="63,262,68,265,78,267,85,272,84,281,85,290,85,299,81,303,78,312,74,318,73,327,71,336,68,341,66,347,64,354,61,362,58,371,51,371,46,368,41,359,46,322,49,295"
+                            shape="poly">
+                        <area class="body-area" target="" alt="left-rear-thigh" title="left-rear-thigh" href=""
+                            coords="438,402,422,405,399,405,388,400,380,401,381,411,383,432,385,446,390,465,395,481,396,495,396,508,402,518,404,524,409,526,421,527,428,527,432,522,436,513,438,491,437,468,440,455,443,445,441,418"
+                            shape="poly">
+                        <area class="body-area" target="" alt="right-rear-thigh" title="right-rear-thigh" href=""
+                            coords="449,410,458,410,465,410,482,410,495,409,505,409,509,424,509,437,506,450,505,462,501,471,500,484,498,492,501,504,500,513,499,523,497,532,485,532,474,532,467,532,462,527,456,510,456,486,456,461,451,455,451,436"
+                            shape="poly">
+                        <area class="body-area" target="" alt="left-calf" title="left-calf" href=""
+                            coords="426,538,409,538,401,538,397,545,395,554,397,564,399,572,400,585,401,596,403,605,407,616,411,628,414,639,418,653,420,660,425,661,431,661,434,655,432,641,432,630,432,618,434,607,435,595,436,582,436,570,436,557,434,546"
+                            shape="poly">
+                        <area class="body-area" target="" alt="right-calf" title="right-calf" href=""
+                            coords="456,545,464,545,481,546,491,545,496,548,496,561,494,572,492,583,489,590,487,597,484,609,484,618,481,631,478,639,476,650,473,661,465,663,460,657,461,648,461,632,457,622,456,609,456,590,454,575,454,565"
+                            shape="poly">
+                        <area class="body-area" target="" alt="right-rear-forearm" title="right-rear-forearm" href=""
+                            coords="534,270,523,274,515,277,511,291,511,302,512,310,519,324,525,329,528,337,533,342,537,351,545,350,552,346,551,333,548,325,548,312,544,299,540,283"
+                            shape="poly">
+                        <area class="body-area" target="" alt="left-rear-arm" title="left-rear-arm" href=""
+                            coords="369,139,358,151,350,173,355,198,361,208,363,220,359,237,360,253,371,256,378,258,384,257,378,247,378,234,377,218,375,192,373,174,372,156,372,146"
+                            shape="poly">
+                        <area class="body-area" target="" alt="right-rear-arm" title="right-rear-arm" href=""
+                            coords="509,139,509,146,510,162,510,177,514,186,515,194,513,208,516,222,512,233,510,249,508,259,515,260,521,255,528,253,528,236,526,221,527,209,529,198,533,188,532,175,525,160,523,149"
+                            shape="poly">
+                        <area class="body-area" target="" alt="left-rear-forearm" title="left-rear-forearm" href=""
+                            coords="352,260,360,262,371,265,380,267,381,275,380,285,379,298,378,305,373,318,369,326,363,336,359,344,356,352,352,360,344,363,338,359,336,348,341,333,341,323,344,304,349,284,352,271"
+                            shape="poly">
+                    </map>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <p>Click to select body area.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Full Height Modal Right -->
+
+    <script src="../js/modal-details.js"></script>
+
 </body>
 
 </html>
