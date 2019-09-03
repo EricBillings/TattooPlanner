@@ -19,7 +19,6 @@ module.exports = function(app) {
     });
 
     app.post("/api/Customers", function(req, res) {
-        console.log(req.body)
         db.Customer.create(req.body)
             .then(function(dbCustomer) {
                 res.json(dbCustomer);
