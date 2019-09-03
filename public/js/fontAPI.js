@@ -9,6 +9,8 @@ WebFont.load({
 
 $(document).ready(function() {
 
+    /* Generate or Update Preview of Tattoo on Click of Preview Button*/
+
     let view = 0;
     $("#preview").on("click", function(event) {
         $("#previewArea").empty();
@@ -33,7 +35,7 @@ $(document).ready(function() {
 
     })
 
-
+    /* Create Font Option Divs for Dropdown*/
 
     for (let i = 0; i < families.length; i++) {
         const family = families[i].replace(/\s/g, "");
@@ -43,7 +45,7 @@ $(document).ready(function() {
         $("#font").css("font-family", families[0])
     }
 
-
+    /* Change Font of Preview on Change of Dropdown Option*/
 
     $("#font").on("change", function() {
 
@@ -52,6 +54,8 @@ $(document).ready(function() {
         $("#previewDiv").css("font-family", previewFont);
 
     })
+
+    /* Change Color of Preview on Change of Color Option*/
 
     $("#color").on("change", function() {
 

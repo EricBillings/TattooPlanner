@@ -1,21 +1,18 @@
-module.exports = function(sequelize, DataTypes){
+module.exports = function(sequelize, DataTypes) {
     const Customer = sequelize.define("Customer", {
         email: {
             type: DataTypes.STRING,
-            validate:{
-                isEmail: true,
-                allowNull: false
-            }
+            allowNull: false
         },
-        password:{
+        password: {
             type: DataTypes.STRING,
             allowNull: false
         }
 
     });
 
-    Customer.associate = function(models){
-        Customer.hasMany(models.Tattoo,{
+    Customer.associate = function(models) {
+        Customer.hasMany(models.Tattoo, {
             onDelete: "cascade"
         })
     }
