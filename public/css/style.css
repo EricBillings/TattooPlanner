@@ -1,5 +1,5 @@
 footer {
-    background-color: lightgray;
+    background-color: maroon;
     color: black;
     font-weight: bold;
     padding: 5px;
@@ -16,20 +16,39 @@ main {
 
 body {
     min-height: 100%;
+    font-family: 'Cinzel Decorative', cursive;
 }
 
 html {
     height: 100%;
 }
 
-#title-of-page {
-    font-family: 'Cinzel Decorative', cursive;
-}
-
 #preview {
     margin-bottom: 20px;
 }
 
+form {
+    padding: 5px;
+}
+
+.jumbotron{
+    background-color: black;
+    color: white;
+}
+
+nav, .footer {
+    background-color: maroon;
+    color: white;
+}
+
+button, .btn {
+    background-color: maroon;
+    color: white;
+}
+
+button, #preview {
+    border-radius: 5px;
+}
 
 .container-fluid .title{
     background: url("../images/tattooPlanner.png");
