@@ -16,5 +16,8 @@ module.exports = function(sequelize, DataTypes) {
             onDelete: "cascade"
         })
     }
+    Customer.prototype.validatePassword = function (val) {
+        return this.password === val;
+      }
     return Customer;
 }
