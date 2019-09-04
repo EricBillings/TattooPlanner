@@ -22,6 +22,10 @@ module.exports = function (app) {
     res.sendFile(path.join(__dirname, "../public/details.html"));
   });
 
+  app.get("/signedin",checkAuth, function (req, res) {
+    res.sendFile(path.join(__dirname, "../public/signedin.html"));
+  });
+
   app.get("/",checkNotAuth, function (req, res) {
     res.sendFile(path.join(__dirname, "../public/index.html"));
   });
