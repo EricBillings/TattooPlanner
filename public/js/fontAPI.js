@@ -1,4 +1,4 @@
-const families = ['Tangerine', 'Akronim', 'Luckiest Guy', 'Lobster', 'Kanit', 'Wire One', 'Allura', 'Amatic SC', 'Baloo Bhaijaan', 'Bokor', 'Butterfly Kids', 'Calligraffitti', 'Caveat', 'Chilanka', 'Kristi', 'Lemonada', 'Londrina Shadow', 'Noto Sans SC', 'Shadows Into Light', 'Shadows Into Light Two', 'Snowburst One', 'Tajawal', 'Tangerine', 'ZCOOL KuaiLe', 'ZCOOL QingKe HuangYou'];
+const families = ['Akronim', 'Luckiest Guy', 'Lobster', 'Rock Salt', 'Homemade Apple', 'Berkshire Swash', 'Sofia', 'Kanit', 'Wire One', 'Tangerine', 'Allura', 'Amatic SC', 'Baloo Bhaijaan', 'Bokor', 'Sedgwick Ave', 'Mrs Sheppards', 'Molle', 'Lakki Reddy', 'Butterfly Kids', 'Calligraffitti', 'Caveat', 'Chilanka', 'Kristi', 'Lemonada', 'Londrina Shadow', 'Noto Sans SC', 'Shadows Into Light', 'Snowburst One', 'Tajawal', 'Tangerine', 'ZCOOL KuaiLe', 'ZCOOL QingKe HuangYou'];
 
 WebFont.load({
     google: {
