@@ -68,7 +68,7 @@ $(document).ready(function() {
 
     })
 
-    // Listen for Sign Up Click
+    // Listen for Sign Up Click and Send Tattoo Details to db
 
     $(document).on("click", "#submit", handleNewTattoo);
 
@@ -79,6 +79,7 @@ $(document).ready(function() {
         let size = $("#size").val();
         let font = $("#font").val();
         let tattooSpec = $("#specify").val();
+        let fontColor = $("#color").val();
         let bodyPart = $("#bodyPartDisplay").text();
         let tattooText = $("#phrase").val();
 
@@ -96,5 +97,42 @@ $(document).ready(function() {
         $.post("api/Tattoos", data)
         console.log(data);
     }
+
+
+
+    // Populate Shop Tattoo Cards
+
+    getTattoos();
+
+
+    function getTattoos() {
+        $.get("/api/Tattoos", function(data) {
+            buildCards(data);
+
+        })
+    }
+
+    function buildCards(data) {
+        console.log(data)
+        for (let i = 0; i < data.length; i++) {
+            let cardDiv = `
+            <div class="col-2" style="color:${data[i]["colors"]}; font-family:${data[i]["font"]}">${data[i]["text"]}</div>
+            <div class="col-2" style="color:black; font-family:arial">${data[i]["text"]}</div>
+            <div class="col-2" style="color:black; font-family:arial">${data[i]["font"]}</div>
+            <div class="col-1" style="color:black; font-family:arial">${data[i]["location"]}</div>
+            <div class="col-1" style="color:black; font-family:arial">${data[i]["colors"]}</div>
+            <div class="col-1" style="color:black; font-family:arial">${data[i]["size"]}</div>
+            <div class="col-2" style="color:black; font-family:arial">${data[i]["specs"]}</div>
+            `
+            $("#tattooList").append(cardDiv);
+        }
+    }
+
+
+
+
+
+
+
 
 });

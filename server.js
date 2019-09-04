@@ -15,7 +15,7 @@ require("./routes/api-routes.js")(app);
 
 
 //syncs models with database, will drop current database and recreate if exists
-db.sequelize.sync({ force: true }).then(function() {
+db.sequelize.sync({}).then(function() {
     app.listen(PORT, function() {
         console.log("App listening on PORT " + PORT);
     });
