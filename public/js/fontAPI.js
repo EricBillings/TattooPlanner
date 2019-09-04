@@ -116,19 +116,21 @@ $(document).ready(function() {
     function buildCards(data) {
         console.log(data)
         for (let i = 0; i < data.length; i++) {
-            let cardDiv = `
-            <div class="col-2" style="color:${data[i]["colors"]}; font-family:${data[i]["font"]}">${data[i]["text"]}</div>
-            <div class="col-2" style="color:black; font-family:arial">${data[i]["text"]}</div>
-            <div class="col-2" style="color:black; font-family:arial">${data[i]["font"]}</div>
-            <div class="col-1" style="color:black; font-family:arial">${data[i]["location"]}</div>
-            <div class="col-1" style="color:black; font-family:arial">${data[i]["colors"]}</div>
-            <div class="col-1" style="color:black; font-family:arial">${data[i]["size"]}</div>
-            <div class="col-2" style="color:black; font-family:arial">${data[i]["specs"]}</div>
+            let cardDiv = `<div class="row">
+            <div class="col-4" style="color:black; font-family:arial">Customer: ${data[i]["CustomerId"]}</div>
+            <div class="col-8" style="color:${data[i]["colors"]}; font-family:${data[i]["font"]}">${data[i]["text"]}</div>
+            <div class="col" style="color:black; font-family:arial">Text: ${data[i]["text"]}</div>
+            </div><div class="col" style="color:black; font-family:arial">Font: ${data[i]["font"]}</div><div class="col" style="color:black; font-family:arial">Location: ${data[i]["location"]}</div><div class="col" style="color:black; font-family:arial">Color: ${data[i]["colors"]}</div><div class="col" style="color:black; font-family:arial">Size: ${data[i]["size"]}</div>
+            <div class="col-6" style="color:black; font-family:arial">Specifications: ${data[i]["specs"]}</div>
             <button class="trash" id="${data[i]["id"]}">Trash</button>
+            </div>
+            <hr>
             `
             $("#tattooList").append(cardDiv);
         }
     }
+
+    // Remove Tattoo from Shop List
 
     $("#tattooList").on("click", ".trash", function(data) {
         $.ajax({
