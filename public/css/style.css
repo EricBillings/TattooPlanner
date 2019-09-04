@@ -15,6 +15,18 @@ footer {
     border-radius: 5px;
 }
 
+.tattosenthead, .tattosentpara {
+    color: white;
+}
+
+.tattoosentbtn {
+    color: black;
+    background-color: maroon;
+}
+.modal-footer{
+background-color: black;
+}
+
 main {
     margin-bottom: 100px;
 }
