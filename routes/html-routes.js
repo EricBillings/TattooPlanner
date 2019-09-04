@@ -13,9 +13,9 @@ module.exports = function (app) {
 
   function checkNotAuth(req,res,next){
     if(req.isAuthenticated()){
-      res.redirect('/details')
+      return res.redirect('/signedin')
     }
-    return next()
+     next()
   }
 
   app.get("/details",checkAuth, function (req, res) {
