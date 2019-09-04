@@ -107,6 +107,7 @@ $(document).ready(function() {
 
     function getTattoos() {
         $.get("/api/Tattoos", function(data) {
+            $("#tattooList").empty();
             buildCards(data);
 
         })
@@ -123,11 +124,20 @@ $(document).ready(function() {
             <div class="col-1" style="color:black; font-family:arial">${data[i]["colors"]}</div>
             <div class="col-1" style="color:black; font-family:arial">${data[i]["size"]}</div>
             <div class="col-2" style="color:black; font-family:arial">${data[i]["specs"]}</div>
+            <button class="trash" id="${data[i]["id"]}">Trash</button>
             `
             $("#tattooList").append(cardDiv);
         }
     }
 
+    $("#tattooList").on("click", ".trash", function(data) {
+        $.ajax({
+                method: "DELETE",
+                url: "/api/Tattoos/" + event.target.id
+            })
+            .then(getTattoos);
+
+    })
 
 
 
