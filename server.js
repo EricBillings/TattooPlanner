@@ -4,6 +4,7 @@ const PORT = process.env.PORT || 8080;
 const passport = require("passport")
 const session = require('express-session')
 const LocalStrategy = require('passport-local').Strategy;
+require('dotenv').config();
 
 const db = require("./models")
 
@@ -45,7 +46,7 @@ passport.deserializeUser(function (id, done) {
 });
 
 app.use(session({
-    secret: 'UpsIkifsx84ohJuCzYLq0nWxOybpZxFa',
+    secret: process.env.SESSION_KEY,
     resave: false,
     saveUninitialized: false
     // cookie: { secure: true }

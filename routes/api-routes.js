@@ -2,6 +2,7 @@ let db = require("../models");
 const nodemailer = require("nodemailer");
 
 
+
 module.exports = function(app) {
 
     app.get("/api/Customers", function(req, res) {
@@ -114,6 +115,11 @@ module.exports = function(app) {
             });
     });
 
+    app.put('/logout',function(req,res){
+        req.logout();
+        res.end();
+    })
+
     //nodemailer
     app.post("/api/newTat", function(req, res) {
         var newTat = req.body;
@@ -121,7 +127,7 @@ module.exports = function(app) {
             service: "gmail",
             auth: {
                 user: 'plannertattoo@gmail.com',
-                pass: 'TattooPlanner123'
+                pass: process.env.SECRET_KEY
             }
         });
 
