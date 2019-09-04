@@ -15,7 +15,7 @@ module.exports = function (app) {
     if(req.isAuthenticated()){
       res.redirect('/details')
     }
-    next()
+    return next()
   }
 
   app.get("/details",checkAuth, function (req, res) {
