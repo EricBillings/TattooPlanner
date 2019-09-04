@@ -68,7 +68,7 @@ $(document).ready(function() {
 
     })
 
-    // Listen for Sign Up Click and Send Tattoo Details to db
+    // Listen for Submit Click and Send Tattoo Details to db
 
     $(document).on("click", "#submit", handleNewTattoo);
 
