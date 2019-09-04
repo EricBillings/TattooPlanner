@@ -5,7 +5,6 @@ const nodemailer = require("nodemailer");
 module.exports = function(app) {
 
     app.get("/api/Customers", function(req, res) {
-        console.log(req.body);
         db.Customer.findAll({})
             .then(function(dbCustomer) {
                 res.json(dbCustomer);
