@@ -56,8 +56,8 @@ app.use(passport.session());
 
 app.post('/',
     passport.authenticate('local', {
-        successRedirect: '/details',
-        failureRedirect: '/asdf'
+        successRedirect: '/signedin',
+        failureRedirect: '/'
         // failureFlash: true
     })
 );
