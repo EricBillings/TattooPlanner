@@ -34,9 +34,11 @@
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="navbar-brand" href="/"><button type="button" class="btn nav-button">Home</button></a>
+
+            <a class="navbar-brand" href="/signedin"><button type="button" class="btn nav-button">Home</button></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div id="navbarNavDropdown" class="navbar-collapse collapse">
@@ -77,7 +79,7 @@
                 </div>
                 <div class="form-group">
                     <label for="color">Color:</label>
-                    <input type="color" id="color" name="color" value="#e66465">
+                    <input type="color" id="color" name="color" value="#000000">
                 </div>
                 <button type="submit" id="preview">Preview Tattoo</button>
                 <div class="form-group" id="mobile-body-part">
@@ -121,7 +123,7 @@
                 <!-- Button trigger modal-->
 
                 <div class="form-group">
-                    <button type="submit" class="btn btn-dark btn-lg btn-block" id="submit">Submit</button>
+                    <button data-toggle="modal" data-target="#centralModalSuccess" type="submit" class="btn btn-dark btn-lg btn-block" id="submit">Submit</button>
                 </div>
             </form>
         </div>
@@ -159,34 +161,6 @@
         </div>
     </div>
     <!--Modal: modalVM-->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     <!-- Full Height Modal Right -->
@@ -338,6 +312,36 @@
         </div>
     </div>
     <!-- Full Height Modal Right -->
+    <!--Complete Form Modal-->
+
+    <div class="modal fade" id="centralModalSuccess" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-notify modal-success" role="document">
+            <!--Content-->
+            <div class="modal-content">
+                <!--Header-->
+                <div class="modal-header">
+                    <h1 class="headinglead tattosenthead">Tattoo Sent!</h1>
+
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" class="white-text">&times;</span>
+                    </button>
+                </div>
+
+                <!--Body-->
+                <div class="modal-body">
+                    <div class="text-center">
+                        <p class="tattosentpara">Your tattoo was succesfully sent! The tattoo shop will be in contact with you soon!</p>
+                    </div>
+                </div>
+
+                <!--Footer-->
+                <div class="modal-footer justify-content-center">
+                    <a type="button" class="btn tattoosentbtn" href="/">Home</a>
+                </div>
+            </div>
+            <!--/.Content-->
+        </div>
+    </div>
 
     <script src="../js/modal-details.js"></script>
     <script src="js/app.js"></script>

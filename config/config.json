@@ -1,8 +1,7 @@
 {
     "development": {
         "username": "root",
-
-        "password": "ShakeRag1!",
+        "password": "",
         "database": "tat_test",
         "host": "127.0.0.1",
         "port": 3306,
@@ -22,6 +21,7 @@
         "database": "database_production",
         "host": "127.0.0.1",
         "port": 3306,
-        "dialect": "mysql"
+        "dialect": "mysql",
+        "use_env_variable": "JAWSDB_URL"
     }
 }

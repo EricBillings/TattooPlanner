@@ -85,7 +85,6 @@ $(document).ready(function() {
 
     function sendCustomer(data) {
         $.post("api/Customers", data)
-        console.log(data);
     }
 
 
