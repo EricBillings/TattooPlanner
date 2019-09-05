@@ -7,22 +7,30 @@ WebFont.load({
 });
 
 
+let text;
+let fontFamily;
+let fontColor;
+
+
 $(document).ready(function() {
 
     /* Generate or Update Preview of Tattoo on Click of Preview Button*/
 
     let view = 0;
     $("#preview").on("click", function(event) {
-        let text = $("#phrase").val();
+        text = $("#phrase").val();
+    
         $("#previewArea").empty();
 
         const previewDiv = `<div id="previewDiv" style="font-size: 36px">${text}</div>`
-        let fontFamily = $("#font").val();
-        let fontColor = $("#color").val();
+        fontFamily = $("#font").val();
+        fontColor = $("#color").val();
         $("#previewArea").append(previewDiv);
         $("#previewDiv").css("font-family", fontFamily);
         $("#previewDiv").css("color", fontColor);
-
+        $("#overlay").empty();
+        $("#overlay").append(text);
+        $("#overlay").css({'color':fontColor, 'font-family':fontFamily})
 
 
         if (view === 0) {
